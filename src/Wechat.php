@@ -7,7 +7,13 @@ namespace iboxs\wechat;
 
 class Wechat
 {
-    public static function Client($url){
-        return (new Client($url));
+    public function Applet(){
+        $config=config('wechat');
+        return new Applet($config);
+    }
+
+    public function Official(){
+        $config=config('wechat');
+        return new Official($config);
     }
 }
