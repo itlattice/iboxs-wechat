@@ -1,0 +1,24 @@
+{
+    "name": "iboxs/wechat",
+    "description": "微信开发包",
+    "type": "1",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "zqu",
+            "email": "zqu1016@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+      "ext-curl": "*",
+      "ext-mbstring": "*",
+      "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "iboxs\\wechat\\": "src/"
+        }
+    }
+}
