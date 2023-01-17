@@ -1,25 +1,21 @@
 {
     "name": "iboxs/wechat",
-    "description": "微信开发包",
+    "description": "Redis convenient operation package",
     "type": "1",
     "license": "MIT",
     "version": "1.0.0",
     "authors": [
-      {
-        "name": "zqu",
-        "email": "zqu1016@qq.com"
-      }
+        {
+            "name": "zqu",
+            "email": "zqu1016@qq.com"
+        }
     ],
     "require": {
-      "php": ">=7.0",
-      "ext-curl": "*",
-      "ext-mbstring": "*",
-      "ext-json": "*",
-      "iboxs/redis": "1.0.*"
+        "php": ">=7.0"
     },
     "autoload": {
-      "psr-4": {
-        "iboxs\\wechat\\": "src/"
-      }
+        "psr-4": {
+            "iboxs\\wechat\\": "src/"
+        }
     }
 }

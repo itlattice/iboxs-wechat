@@ -4,14 +4,14 @@ namespace iboxs\wechat;
 use iboxs\wechat\common\Base;
 
 /**
- * 小程序
+ * 开放平台
  */
-class Applet extends Base
+class OpenApp extends Base
 {
     // 调用实际类的方法
     public static function __callStatic($method, $params)
     {
-        $config=(new self())->getConfig();
-        return (new Wechat($config))->applet()->$method(...$params);
+        $config=(new self())->config['openapp']??[];
+        return (new Wechat($config))->openapp()->$method(...$params);
     }
 }
