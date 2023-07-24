@@ -11,5 +11,8 @@ return [
     /**
      * 公众号
      */
-    'official'=>['c']
+    'official'=>[
+        'appid'=>'aa',
+        'secret'=>'a'
+    ]
 ];
