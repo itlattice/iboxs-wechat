@@ -3,7 +3,7 @@
     "description": "Redis convenient operation package",
     "type": "1",
     "license": "MIT",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "authors": [
         {
             "name": "zqu",
@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+      "ext-curl": "*"
     },
     "autoload": {
         "psr-4": {

@@ -1,28 +1,26 @@
 <?php
 
 namespace iboxs\wechat;
-use iboxs\wechat\common\until\Applet as UntilApplet;
-use iboxs\wechat\common\until\Official as UntilOfficial;
-use iboxs\wechat\common\until\Openapp as UntilOpenapp;
+use \Exception;
+use iboxs\wechat\Factory\miniProgram;
+use iboxs\wechat\Factory\officialAccount;
 
+
+/**
+ * @package ExpressApi
+ * @method static officialAccount officialAccount() 公众号
+ * @method static miniProgram miniProgram() 小程序
+ **/
 class Wechat
 {
-    protected $config;
-
-    public function __construct($config)
+    public static function __callStatic($name, $arguments)
     {
-        $this->config=$config;
-    }
-
-    public function applet(){
-        return (new UntilApplet($this->config));
-    }
-
-    public function official(){
-        return (new UntilOfficial($this->config));
-    }
-
-    public function openapp(){
-        return (new UntilOpenapp($this->config));
+        $file=__DIR__."/lib/common.php";
+        require_once $file;
+        $class="\\iboxs\\wechat\\Factory\\{$name}";
+        if(!class_exists($class)){
+            throw new Exception('不支持的接口类');
+        }
+        return new $class($arguments[0]??[]);
     }
 }
