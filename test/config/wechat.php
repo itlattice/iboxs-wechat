@@ -12,7 +12,7 @@ return [
      * 公众号
      */
     'official'=>[
-        'appid'=>'aa',
-        'secret'=>'a'
+        'appid'=>'wx5db7d4a8d0e86fa6',
+        'secret'=>'c607db833415009049eb6a309082e7c7'
     ]
 ];
