@@ -17,7 +17,7 @@ class Base
 
     public function getToken(){
         $token=Cache::get('accessToken');
-        if($token!==false){
+        if($token!=false){
             return $token;
         }
         if(!isset(self::$config['appid'])){

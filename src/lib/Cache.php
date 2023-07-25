@@ -6,13 +6,13 @@ class Cache
 {
     public static function get($key){
         if(class_exists('\\iboxs\\redis\\Redis')){
-            return \iboxs\redis\Redis::basic()->get("iboxswechat:{$key}");
+            return \iboxs\redis\Redis::basic()->get("iboxswechat:{$key}",false);
         }
         if(class_exists('\\Illuminate\\Support\\Facades\\Cache')){
-            return Illuminate\Support\Facades\Cache::get("iboxswechat:{$key}");
+            return \Illuminate\Support\Facades\Cache::get("iboxswechat:{$key}",false);
         }
         if(class_exists('\\think\\facade\\Cache')){
-            return \think\facade\Cache::get("iboxswechat:{$key}");
+            return \think\facade\Cache::get("iboxswechat:{$key}",false);
         }
         $file=__DIR__."/../cache/accesstoken.cache";
         if(!file_exists($file)){
@@ -31,7 +31,7 @@ class Cache
             return \iboxs\redis\Redis::basic()->set("iboxswechat:{$key}",$val,$time);
         }
         if(class_exists('\\Illuminate\\Support\\Facades\\Cache')){
-            return Illuminate\Support\Facades\Cache::set("iboxswechat:{$key}",$val,$time);
+            return \Illuminate\Support\Facades\Cache::set("iboxswechat:{$key}",$val,$time);
         }
         if(class_exists('\\think\\facade\\Cache')){
             return \think\facade\Cache::set("iboxswechat:{$key}",$val,$time);

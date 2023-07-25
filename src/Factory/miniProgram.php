@@ -8,7 +8,7 @@ use iboxs\wechat\lib\http\Base;
 
 /**
  * @package ExpressApi
- * @property sec sec 安全
+ * @property sec $sec 内容安全
  * @method static miniProgram miniProgram() 小程序
  **/
 class miniProgram extends BaseApp
@@ -19,7 +19,7 @@ class miniProgram extends BaseApp
         if(function_exists('config')){
             $this->config=config('wechat.miniprogram');
         }
-        (new Base())->setConfig($config);
+        (new Base())->setConfig($this->config);
     }
 
     public function __get($name){

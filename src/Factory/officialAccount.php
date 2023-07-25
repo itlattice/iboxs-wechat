@@ -17,9 +17,9 @@ class officialAccount extends BaseApp
     {
         parent::__construct($config);
         if(function_exists('config')){
-            $this->config=config('wechat.miniprogram');
+            $this->config=config('wechat.offcial');
         }
-        (new Base())->setConfig($config);
+        (new Base())->setConfig($this->config);
     }
 
     public function __get($name){
