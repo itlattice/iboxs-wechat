@@ -2,3 +2,5 @@
 /.git
 composer.lock
 /vendor
+test/.user.ini
+tmp/*

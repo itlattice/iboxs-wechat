@@ -6,9 +6,10 @@ use Exception;
 
 class qrcode extends base
 {
-    public function __construct($data)
+    public function __construct($data,$config)
     {
         $this->data = $data;
+        $this->config=$config;
         $this->hander = $this->getHandler($this->host);
     }
 

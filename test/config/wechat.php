@@ -12,7 +12,8 @@ return [
      * 公众号
      */
     'official'=>[
-        'appid'=>'wx5db7d4a8d0e86fa6',
-        'secret'=>'c607db833415009049eb6a309082e7c7'
+        'appid'=>'wx167cf08b1fdb70c6',
+        'secret'=>'a394bcadafd8fb1eb52a6a7d7ca15921',
+        'token'=>'a394bcadafd8fb1eb52a6a7d7ca15921'
     ]
 ];

@@ -4,12 +4,6 @@ namespace iboxs\wechat\Factory\official_account;
 
 class user extends base
 {
-    public function __construct($data)
-    {
-        $this->data = $data;
-        $this->hander = $this->getHandler($this->host);
-    }
-
     /**
      * 获取用户列表
      * @param string|null $nextOpenid 第一个拉取的OPENID，不填默认从头开始拉取

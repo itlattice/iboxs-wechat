@@ -1,6 +1,6 @@
 {
     "name": "iboxs/wechat",
-    "description": "Redis convenient operation package",
+    "description": "微信开发包",
     "type": "1",
     "license": "MIT",
     "version": "2.0.0",
@@ -12,11 +12,17 @@
     ],
     "require": {
         "php": ">=7.0",
-      "ext-curl": "*"
+        "ext-curl": "*"
     },
     "autoload": {
         "psr-4": {
             "iboxs\\wechat\\": "src/"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
         }
     }
 }
