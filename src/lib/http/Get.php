@@ -16,12 +16,13 @@ class Get extends Base
         list($hasToken,$handler)=$arg;
         $url=$this->host.$handler->url."?";
         $data=$handler->data;
+        $refresh=$arg[2]??false;
         $str='';
         if(count($data)>0){
             $str=http_build_query($data);
         }
         if($hasToken){
-            $url.='access_token='.$this->getToken()."&".$str;
+            $url.='access_token='.$this->getToken($refresh)."&".$str;
         } else{
             $url.=$str;
         }

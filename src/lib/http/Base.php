@@ -15,11 +15,7 @@ class Base
     }
     public $host="https://api.weixin.qq.com/";
 
-    public function getToken(){
-        $token=Cache::get('accessToken');
-        if($token!=false){
-            return $token;
-        }
+    public function getToken($refresh=false){
         if(!isset(self::$config['appid'])){
             throw new \Exception('APPID未配置');
         }
@@ -29,16 +25,15 @@ class Base
         $data=[
             'grant_type'=>'client_credential',
             'appid'=>self::$config['appid'],
-            'secret'=>self::$config['secret']
+            'secret'=>self::$config['secret'],
+            'force_refresh'=>false
         ];
-        $url=$this->host.'cgi-bin/token';
-        $json=$this->getPageParams($url,$data,Format::FMT_JSON);
+        $url=$this->host.'cgi-bin/stable_token';
+        $json=$this->PostJson($url,json_encode($data),Format::FMT_JSON);
         if(isset($json['errcode'])&&$json['errcode']!=0){
             throw new \Exception('微信Token获取请求错误：'.json_encode($json,JSON_UNESCAPED_UNICODE));
         }
         $token=$json['access_token'];
-        $time=$json['expires_in'];
-        Cache::set('accessToken',$token,$time-600);
         return $token;
     }
 }

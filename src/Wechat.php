@@ -13,6 +13,27 @@ use iboxs\wechat\Factory\officialAccount;
  **/
 class Wechat
 {
+    /**
+     * 二维码：临时的整型参数值
+     * @var string
+     */
+    const QR_SCENE='QR_SCENE';
+    /**
+     * 二维码：临时的字符串参数值
+     * @var string
+     */
+    const QR_STR_SCENE="QR_STR_SCENE";
+    /**
+     * 二维码：永久的整型参数值
+     * @var string
+     */
+    const QR_LIMIT_SCENE="QR_LIMIT_SCENE";
+    /**
+     * 二维码：永久的字符串参数值
+     * @var string
+     */
+    const QR_LIMIT_STR_SCENE="QR_LIMIT_STR_SCENE";
+
     public static function __callStatic($name, $arguments)
     {
         $file=__DIR__."/lib/common.php";

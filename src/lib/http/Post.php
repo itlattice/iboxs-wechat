@@ -15,8 +15,9 @@ class Post extends Base
     public function handleStatic($arg){
         list($hasToken,$handler)=$arg;
         $url=$this->host.$handler->url."?";
+        $refresh=$arg[2]??false;
         if($hasToken){
-            $url.='access_token='.$this->getToken();
+            $url.='access_token='.$this->getToken($refresh);
         }
         $postdata=Format::formatParams($handler->data,$handler->requestformat);
         return $this->PostJson($url,$postdata);

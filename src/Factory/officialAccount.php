@@ -3,16 +3,17 @@
 namespace iboxs\wechat\Factory;
 
 use iboxs\wechat\common\BaseApp;
-use iboxs\wechat\lib\Data;
 use iboxs\wechat\lib\http\Base;
+use iboxs\wechat\Factory\official_account\{user,qrcode,menu};
 
+/**
+ * @property user $user 用户相关
+ * @property qrcode $qrcode 二维码
+ * @property menu $menu 自定义菜单
+ * @method static officialAccount officialAccount() 小程序
+ **/
 class officialAccount extends BaseApp
 {
-    /**
-     * @var mixed
-     */
-    public $sec;
-
     public function __construct($config)
     {
         parent::__construct($config);

@@ -20,7 +20,7 @@ trait Http
             'http' => array(
                 'method' => 'POST',
                 'header' => 'Content-type:application/x-www-form-urlencoded;charset=utf-8',
-                'content' => $postdata,
+                'content' => http_build_query($postdata),
                 'timeout' => 15 // 超时时间（单位:s）
             )
         );

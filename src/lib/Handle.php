@@ -2,6 +2,7 @@
 
 namespace iboxs\wechat\lib;
 
+use iboxs\wechat\lib\http\Base;
 use iboxs\wechat\lib\http\Get;
 use iboxs\wechat\lib\http\Post;
 
@@ -39,10 +40,18 @@ class Handle
     }
 
     private function httpPost($hasToken){
-        return Post::handle($hasToken,$this);
+        $result=Post::handle($hasToken,$this);
+        if(isset($result['errcode']) &&$result['errcode']==40001){
+            $result=Post::handle($hasToken,$this,true);
+        }
+        return $result;
     }
 
     private function httpGet($hasToken){
-        return Get::handle($hasToken,$this);
+        $result=Get::handle($hasToken,$this);
+        if(isset($result['errcode']) && $result['errcode']==40001){
+            $result=Get::handle($hasToken,$this,true);
+        }
+        return $result;
     }
 }
