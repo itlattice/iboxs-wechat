@@ -14,7 +14,6 @@ use iboxs\wechat\lib\utils\XMLParse;
  * @property user $user 用户相关
  * @property qrcode $qrcode 二维码
  * @property menu $menu 自定义菜单
- * @property sign $sign 消息接收
  * @method static officialAccount officialAccount() 小程序
  **/
 class officialAccount extends BaseApp
