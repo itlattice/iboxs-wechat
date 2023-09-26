@@ -7,3 +7,8 @@ if(!function_exists('dd')){
         exit();
     }
 }
+if(!function_exists('xmlheader')){
+    function xmlheader(){
+        header('Content-type:text/xml');
+    }
+}

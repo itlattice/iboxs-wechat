@@ -35,7 +35,7 @@ class base
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];
         
-        $token = $this->config;
+        $token = $this->config['token'];
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode( $tmpArr );
