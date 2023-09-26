@@ -11,6 +11,6 @@ class Text extends base
         }
         $this->content=$message;
         $this->msgType='text';
-        return $message;
+        return $this;
     }
 }

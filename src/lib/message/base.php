@@ -14,6 +14,8 @@ class base
     protected $isAes=false;
     protected $config;
 
+    protected $responseMsg=[];
+
     public function message($config,$msg){
         $this->fromUserName=$msg['ToUserName'];
         $this->toUserName=$msg['FromUserName'];
@@ -24,22 +26,55 @@ class base
             echo 'success';
             exit();
         }
-        switch($this->msgType){
-            case 'text':
-                return $this->text();
-        }
-    }
-
-    private function text(){
-        $data=[
+        $this->responseMsg=[
             'ToUserName'=>$this->toUserName,
             'FromUserName'=>$this->fromUserName,
             'CreateTime'=>$this->createTime,
-            'MsgType'=>'text',
-            'Content'=>$this->content
+            'MsgType'=>$this->msgType,
         ];
+        switch($this->msgType){
+            case 'text':
+                return $this->text();
+            case 'image':
+                return $this->image();
+            case 'voice':
+                return $this->voice();
+            case 'music':
+                return $this->music();
+            case 'news':
+                return $this->news();
+        }
+    }
+
+    private function news(){
+        $this->responseMsg['ArticleCount']=1;
+        $this->responseMsg['Articles']=$this->content;
+        return $this->sendMsg();
+    }
+
+    private function music(){
+        $this->responseMsg['Music']=$this->content;
+        return $this->sendMsg();
+    }
+
+    private function image(){
+        $this->responseMsg['Image']=$this->content;
+        return $this->sendMsg();
+    }
+
+    private function voice(){
+        $this->responseMsg['Voice']=$this->content;
+        return $this->sendMsg();
+    }
+
+    private function text(){
+        $this->responseMsg['Content']=$this->content;
+        return $this->sendMsg();
+    }
+
+    private function sendMsg(){
         $xml=new XMLParse();
-        $xml=$xml->data2Xml($data);
+        $xml=$xml->data2Xml($this->responseMsg);
         xmlheader();
         if(!$this->isAes){
             $xml="<xml>{$xml}</xml>";

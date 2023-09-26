@@ -72,5 +72,13 @@ class officialAccount extends BaseApp
         if(is_string($result)){
             return (new Text($result))->message($this->config,$msg);
         }
+        if(is_object($result)){
+            $str=get_class($result);
+            if(!class_exists($str)){
+                throw new Exception('不支持的消息类型：'.$str);
+            }
+            return $result->message($this->config,$msg);
+        }
+        return 'success';
     }
 }
