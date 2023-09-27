@@ -4,7 +4,7 @@ namespace iboxs\wechat\Factory;
 
 use iboxs\wechat\common\BaseApp;
 use iboxs\wechat\lib\http\Base;
-use iboxs\wechat\Factory\official_account\{user,qrcode,menu};
+use iboxs\wechat\Factory\official_account\{user,qrcode,menu,web};
 use Exception;
 use iboxs\wechat\lib\message\Text;
 use iboxs\wechat\lib\utils\Prpcrypt;
@@ -14,6 +14,7 @@ use iboxs\wechat\lib\utils\XMLParse;
  * @property user $user 用户相关
  * @property qrcode $qrcode 二维码
  * @property menu $menu 自定义菜单
+ * @property web $web 网页开发
  * @method static officialAccount officialAccount() 小程序
  **/
 class officialAccount extends BaseApp

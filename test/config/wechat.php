@@ -16,6 +16,7 @@ return [
         'secret'=>'a394bcadafd8fb1eb52a6a7d7ca15921',
         'token'=>'a394bcadafd8fb1eb52a6a7d7ca15921',
         'encrypt_type'=>'aes',
-        'EncodingAESKey'=>'a394bcadafd8fb1eb52a6a7d7ca159215ksmjxnjahx'
+        'EncodingAESKey'=>'a394bcadafd8fb1eb52a6a7d7ca159215ksmjxnjahx',
+        'redirect_uri'=>'https://test.lymd.cc/redirect.php' //网页授权回调地址
     ]
 ];
