@@ -14,6 +14,9 @@ return [
     'official'=>[
         'appid'=>'',
         'secret'=>'',
-        'token'=>''
+        'token'=>'',
+        'encrypt_type'=>'aes',
+        'EncodingAESKey'=>'',
+        'redirect_uri'=>''
     ]
 ];

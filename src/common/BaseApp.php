@@ -2,6 +2,7 @@
 
 namespace iboxs\wechat\common;
 
+use iboxs\wechat\lib\utils\sign;
 use iboxs\wechat\lib\Cache;
 use iboxs\wechat\lib\Data;
 use iboxs\wechat\lib\Format;
@@ -9,6 +10,7 @@ use iboxs\wechat\lib\http\Base;
 
 class BaseApp
 {
+    use sign;
     protected $config=[];
 
     protected $data;

@@ -16,6 +16,9 @@
     "autoload": {
         "psr-4": {
             "iboxs\\wechat\\": "src/"
-        }
+        },
+        "files": [
+            "src/lib/common.php"
+        ]
     }
 }
