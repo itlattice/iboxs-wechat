@@ -3,11 +3,17 @@ return [
     /**
      * 小程序
      */
-    'applet'=>['a'],
+    'miniprogram'=>[
+       'appid'=>'',
+       'secret'=>''
+    ],
     /**
      * 开放平台
      */
-    'openapp'=>['b'],
+    'openapp'=>[
+       'appid'=>'',
+       'secret'=>''
+    ],
     /**
      * 公众号
      */
