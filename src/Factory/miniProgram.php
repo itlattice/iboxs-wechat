@@ -3,12 +3,14 @@
 namespace iboxs\wechat\Factory;
 
 use iboxs\wechat\common\BaseApp;
-use iboxs\wechat\Factory\mini_program\sec;
+use iboxs\wechat\Factory\mini_program\user;
 use iboxs\wechat\lib\http\Base;
 
 /**
  * @package ExpressApi
  * @property sec $sec 内容安全
+ * @property user $user 用户相关
+ * @property wxa $wxa 小程序服务API
  * @method static miniProgram miniProgram() 小程序
  **/
 class miniProgram extends BaseApp
@@ -27,6 +29,6 @@ class miniProgram extends BaseApp
         if(!class_exists($class)){
             throw new \Exception('不存在的方法类');
         }
-        return new $class($this->data);
+        return new $class($this->data,$this->config);
     }
 }

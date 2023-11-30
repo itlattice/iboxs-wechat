@@ -15,8 +15,17 @@ class base
 
     protected $host='';
 
+    protected $config=[];
+
     public function getHandler(){
         $this->hander=new Handle($this->host);
         return $this->hander;
+    }
+    
+    public function __construct($data,$config)
+    {
+        $this->data = $data;
+        $this->config=$config;
+        $this->hander = $this->getHandler($this->host);
     }
 }

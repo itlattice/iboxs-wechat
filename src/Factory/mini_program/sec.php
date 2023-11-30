@@ -4,12 +4,6 @@ namespace iboxs\wechat\Factory\mini_program;
 
 class sec extends base
 {
-    public function __construct($data)
-    {
-        $this->data=$data;
-        $this->hander=$this->getHandler($this->host);
-    }
-
     /**
      * 文本内容安全识别
      * @param string $msg 需检测的文本内容，文本字数的上限为2500字

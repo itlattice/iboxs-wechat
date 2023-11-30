@@ -3,7 +3,6 @@
     "description": "微信开发包",
     "type": "1",
     "license": "MIT",
-    "version": "2.0.0",
     "authors": [
         {
             "name": "zqu",
@@ -17,12 +16,6 @@
     "autoload": {
         "psr-4": {
             "iboxs\\wechat\\": "src/"
-        }
-    },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://mirrors.aliyun.com/composer/"
         }
     }
 }

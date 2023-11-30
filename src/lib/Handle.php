@@ -5,6 +5,7 @@ namespace iboxs\wechat\lib;
 use iboxs\wechat\lib\http\Base;
 use iboxs\wechat\lib\http\Get;
 use iboxs\wechat\lib\http\Post;
+use iboxs\wechat\lib\http\PostImg;
 
 class Handle
 {
@@ -36,7 +37,17 @@ class Handle
                 return $this->httpGet($hasToken);
             case 'post':
                 return $this->httpPost($hasToken);
+            case 'postimg':
+                return $this->httpPostImg($hasToken);
         }
+    }
+
+    private function httpPostImg($hasToken){
+        $result=PostImg::handle($hasToken,$this);
+        if(isset($result['errcode']) &&$result['errcode']==40001){
+            $result=PostImg::handle($hasToken,$this,true);
+        }
+        return $result;
     }
 
     private function httpPost($hasToken){
