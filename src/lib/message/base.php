@@ -78,7 +78,6 @@ class base
         xmlheader();
         if(!$this->isAes){
             $xml="<xml>{$xml}</xml>";
-            file_put_contents('../tmp/log.txt',$xml.PHP_EOL,FILE_APPEND);
             echo $xml;
             exit();
         }
@@ -86,7 +85,6 @@ class base
         $pc->encryptMsg($xml,$_GET['timestamp'],$_GET['nonce'],$m);
         if($m){
             echo $m;
-            file_put_contents('../tmp/log.txt',$m.PHP_EOL,FILE_APPEND);
             exit();
         }
     }

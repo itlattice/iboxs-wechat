@@ -3,14 +3,17 @@
 namespace iboxs\wechat\Factory;
 
 use iboxs\wechat\common\BaseApp;
-use iboxs\wechat\Factory\mini_program\user;
+use iboxs\wechat\Factory\mini_program\{user,encryptor,sec,qrcode};
 use iboxs\wechat\lib\http\Base;
 
 /**
  * @package ExpressApi
  * @property sec $sec 内容安全
+ * @property qrcode $qrcode 小程序码或二维码+
  * @property user $user 用户相关
  * @property wxa $wxa 小程序服务API
+ * @property encryptor $encryptor 数据加密解密
+ * @property business $business 小程序业务
  * @method static miniProgram miniProgram() 小程序
  **/
 class miniProgram extends BaseApp

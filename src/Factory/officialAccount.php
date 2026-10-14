@@ -4,7 +4,7 @@ namespace iboxs\wechat\Factory;
 
 use iboxs\wechat\common\BaseApp;
 use iboxs\wechat\lib\http\Base;
-use iboxs\wechat\Factory\official_account\{user,qrcode,menu,sign,message};
+use iboxs\wechat\Factory\official_account\{user,qrcode,menu,sign,message,template_message};
 use Exception;
 use iboxs\wechat\lib\message\Text;
 use iboxs\wechat\lib\utils\Prpcrypt;
@@ -17,6 +17,8 @@ use iboxs\wechat\lib\utils\XMLParse;
  * @property sign $sign 消息接收
  * @property message $message 消息接收
  * @property web $web 网页开发
+ * @property template_message $template_message 模板消息
+ * @property oauth $oauth 微信网页授权
  * @method static officialAccount officialAccount() 小程序
  **/
 class officialAccount extends BaseApp
@@ -78,6 +80,9 @@ class officialAccount extends BaseApp
             $str=get_class($result);
             if(!class_exists($str)){
                 throw new Exception('不支持的消息类型：'.$str);
+            }
+            if($result instanceof officialAccount) {
+                return 'success';
             }
             return $result->message($this->config,$msg);
         }
